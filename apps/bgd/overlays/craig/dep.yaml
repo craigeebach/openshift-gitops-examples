@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: craig
+  name: craig
+  namespace: craig
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: craig
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: craig
+    spec:
+      containers:
+      - image: quay.io/rhdevelopers/bgd:1.0.0
+        name: craig
+        env:
+        - name: COLOR
+          value: "green"
+        resources: {}
+---
